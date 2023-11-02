@@ -158,7 +158,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         },
                       ),
                       Text(
-                        'Sou um intérprete voluntário',
+                        'Sou intérprete',
                         style: TextStyle(
                             color: Color.fromARGB(200, 0, 7, 55),
                             fontSize: 17,
