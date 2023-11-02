@@ -7,13 +7,11 @@ import '../../../components/button_lr.dart';
 import '../../../components/textfield_lr.dart';
 import '../../../services/auth/auth_service.dart';
 
-
-
 class LoginPage extends StatefulWidget {
   static const routeName = '/login-page';
   final Function()? onTap;
 
-  const LoginPage({super.key, required this.onTap });
+  const LoginPage({super.key, required this.onTap});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -29,11 +27,18 @@ class _LoginPageState extends State<LoginPage> {
 
     try {
       await authService.signInWithEmailandPassword(
-          emailController.text, passwordController.text);
+          emailController.text.trim(), passwordController.text.trim());
     } catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.toString())));
     }
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 
   @override

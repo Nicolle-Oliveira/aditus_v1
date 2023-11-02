@@ -38,14 +38,25 @@ class _RegisterPageState extends State<RegisterPage> {
 
     try {
       await authService.signUpWithEmailandPassword(
-          emailController.text,
-          passwordController.text,
-          nomeController.text,
-          sobrenomeController.text, isVoluntario);
+          emailController.text.trim(),
+          passwordController.text.trim(),
+          nomeController.text.trim(),
+          sobrenomeController.text,
+          isVoluntario);
     } catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.toString())));
     }
+  }
+
+  @override
+  void dispose() {
+    nomeController.dispose();
+    sobrenomeController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -137,7 +148,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     children: [
                       Checkbox(
                         checkColor: Colors.white,
-                        fillColor: MaterialStateProperty.all(Color.fromARGB(255, 0, 7, 55)) ,
+                        fillColor: MaterialStateProperty.all(
+                            Color.fromARGB(255, 0, 7, 55)),
                         value: isVoluntario,
                         onChanged: (bool? value) {
                           setState(() {
@@ -145,11 +157,12 @@ class _RegisterPageState extends State<RegisterPage> {
                           });
                         },
                       ),
-
                       Text(
                         'Sou um intérprete voluntário',
                         style: TextStyle(
-                            color: Color.fromARGB(200, 0, 7, 55), fontSize: 17, fontWeight: FontWeight.w600),
+                            color: Color.fromARGB(200, 0, 7, 55),
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(width: 4),
                     ],
