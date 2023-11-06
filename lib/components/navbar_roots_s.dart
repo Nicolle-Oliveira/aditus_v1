@@ -4,6 +4,7 @@ import 'package:aditus_v1/pages/home_page_s.dart';
 import 'package:aditus_v1/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
 
+import '../pages/chat_page.dart';
 import '../pages/configuration_page.dart';
 
 class NavBarRootsS extends StatefulWidget {
@@ -20,6 +21,8 @@ class _NavBarRootsSState extends State<NavBarRootsS> {
     PerfilPage(),
     //Home Page
     HomePageS(),
+    //Chat Page
+    ChatPage(),
     //Config Page
     ConfigPage(),
   ];
@@ -52,7 +55,11 @@ class _NavBarRootsSState extends State<NavBarRootsS> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: 'Chamadas',
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.chat),
+              label: 'Mensagem',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.settings),

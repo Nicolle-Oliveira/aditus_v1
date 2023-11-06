@@ -2,6 +2,7 @@
 
 import 'package:aditus_v1/firebase_options.dart';
 import 'package:aditus_v1/services/auth/auth_service.dart';
+import 'package:aditus_v1/services/user_info_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +15,7 @@ Future<void> main() async {
     MultiProvider(
       providers: [
       ChangeNotifierProvider(create: (context) => AuthService()),
-      ChangeNotifierProvider(create: (context) => AuthService()),
+      ChangeNotifierProvider(create: (context) => UserInfo()),
       ],
       child: const MyApp(),
     )

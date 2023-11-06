@@ -17,17 +17,14 @@ class GetUserName extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.done) {
             Map<String, dynamic> data =
                 snapshot.data!.data() as Map<String, dynamic>;
-            return data['isVoluntario']
-                ? Text('${data['nome']} - Intérprete',
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Color.fromARGB(255, 0, 10, 77),
-                        fontWeight: FontWeight.w500))
-                : Text('${data['nome']} - Usuário Surdo',
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Color.fromARGB(255, 0, 10, 77),
-                        fontWeight: FontWeight.w500));
+            return Text(
+                data['isVoluntario']
+                    ? '${data['nome']} - Intérprete'
+                    : '${data['nome']} - Usuário Surdo',
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Color.fromARGB(255, 0, 10, 77),
+                    fontWeight: FontWeight.w500));
           }
           return Text('loading...');
         }));
