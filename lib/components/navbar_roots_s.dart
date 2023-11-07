@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:aditus_v1/pages/chat/contacts_list.dart';
 import 'package:aditus_v1/pages/home_page_s.dart';
 import 'package:aditus_v1/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
 
-import '../pages/chat_page.dart';
 import '../pages/configuration_page.dart';
 
 class NavBarRootsS extends StatefulWidget {
@@ -22,7 +22,7 @@ class _NavBarRootsSState extends State<NavBarRootsS> {
     //Home Page
     HomePageS(),
     //Chat Page
-    ChatPage(),
+    ContactsList(),
     //Config Page
     ConfigPage(),
   ];
