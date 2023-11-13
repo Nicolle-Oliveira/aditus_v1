@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_local_variable, empty_statements, dead_code
 
 import 'package:aditus_v1/components/my_button.dart';
 import 'package:aditus_v1/pages/call_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,32 +19,6 @@ class _HomePageSState extends State<HomePageS> {
   //Docs Ids
   List<String> docsIds = [];
 
-  //get DocsIds
-  Future getDocId() async {
-    await FirebaseFirestore.instance.collection('users').get().then(
-          (snapshot) => snapshot.docs.forEach((document) {
-          //print(document.reference);
-            docsIds.add(document.reference.id);
-          }),
-        );
-  }
-/*
-  Future<String> getCurrentUserId() async {
-    await getDocId(); // Aguarde o preenchimento da lista docsIds
-
-    FirebaseAuth auth = FirebaseAuth.instance;
-    User? user = auth.currentUser;
-
-    if (user != null) {
-      for (var i = 0; i < docsIds.length; i++) {
-        if (docsIds[i] == user.uid) {
-          return docsIds[i];
-        }
-      }
-    }
-    return 'Nenhum usuário encontrado';
-  }
-*/
   @override
   Widget build(BuildContext context) {
     final userInfo = Provider.of<CurrentUserInfo>(context, listen: false);
@@ -69,7 +42,7 @@ class _HomePageSState extends State<HomePageS> {
 
           if (data != null) {
             final id = data['uid'];
-            String nome = data['nome'].toString() ?? 'Nome não encontrado';
+            String nome = data['nome'] ?? 'Nome não encontrado';
             String email = data['email'] ?? 'Email não encontrado';
             bool isVolunteer = data['isVoluntario'] ?? false;
 /*--------------------------FIM DA ÁREA NÃO MEXER--------------------------*/
