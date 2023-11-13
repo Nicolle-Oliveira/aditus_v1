@@ -127,26 +127,31 @@ class _HomePageSState extends State<HomePageS> {
               ),
             ),
           ),
+
+          
           MyButton(
             onTap_val: () {
-            Navigator.push(
-  context,
-  MaterialPageRoute(builder: (context) => CallPage(callID: 'call_ladadee', userID: id, userName: nome,)),
-);
-
-          },
-            text_val: 'CHAMADA INSTANTÂNEA',
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CallPage(callID: 'call_ladadee', userID: id, userName: nome,)),);
+            },
+            text_val: isVolunteer ? 'ENTRAR NA CHAMADA': 'CHAMADA INSTANTÂNEA',
             icone_val: Icon(
               Icons.video_camera_front_rounded,
               size: 30,
               color: Colors.white,
             ),
           ),
+
           SizedBox(height: 20),
           MyButton(
             onTap_val: () {},
-            text_val: 'AGENDAR UMA CHAMADA',
-            icone_val: Icon(
+            text_val: isVolunteer ? 'AGENDAMENTOS' : 'AGENDAR UMA CHAMADA',
+            icone_val: isVolunteer ? 
+            Icon(
+              Icons.assignment_turned_in_rounded,
+              size: 30,
+              color: Colors.white,
+            )
+            : Icon(
               Icons.calendar_month_rounded,
               size: 30,
               color: Colors.white,
